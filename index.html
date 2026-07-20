@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxe Puglia Transfer — Private Driver d'Eccellenza in Puglia</title>
+<meta name="description" content="Servizi di Noleggio con Conducente (NCC) di lusso in Puglia: transfer aeroportuali, tour privati e matrimoni con flotta Mercedes-Benz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-dark:#0b0b0c;
+    --bg-dark-2:#141311;
+    --gold:#c9a165;
+    --gold-light:#e6cc9c;
+    --cream:#faf6ef;
+    --ink:#1c1b19;
+    --ink-soft:#6f6a60;
+    --line:#e6ded0;
+    --font-display:'Cormorant Garamond', serif;
+    --font-body:'Inter', sans-serif;
+    --container:1160px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--container); margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-family:var(--font-body);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--gold);
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--gold);}
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; line-height:1.08;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 34px;
+    background:var(--gold);
+    color:#141311;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.03em;
+    border-radius:2px;
+    border:1px solid var(--gold);
+    cursor:pointer;
+    transition:background .35s ease, color .35s ease, transform .35s ease;
+  }
+  .btn:hover{background:transparent; color:var(--gold-light); transform:translateY(-2px);}
+  .btn:focus-visible{outline:2px solid var(--gold-light); outline-offset:3px;}
+  .btn-ghost{background:transparent; color:var(--cream); border:1px solid rgba(250,246,239,.35);}
+  .btn-ghost:hover{background:var(--cream); color:var(--ink); border-color:var(--cream);}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    padding:22px 0;
+    background:linear-gradient(to bottom, rgba(11,11,12,.85), transparent);
+  }
+  header .wrap{display:flex; align-items:center; justify-content:space-between;}
+  .logo{font-family:var(--font-display); font-size:22px; color:var(--cream); letter-spacing:.02em;}
+  .logo span{color:var(--gold);}
+  nav ul{list-style:none; display:flex; gap:36px;}
+  nav a{font-size:13px; letter-spacing:.05em; color:var(--cream); opacity:.85; transition:opacity .3s, color .3s;}
+  nav a:hover{opacity:1; color:var(--gold-light);}
+  .nav-cta{display:none;}
+  @media(min-width:900px){.nav-cta{display:inline-flex; padding:11px 24px; font-size:12px;}}
+  .nav-toggle{display:none; background:none; border:0; color:var(--cream); font-size:26px; cursor:pointer;}
+  @media(max-width:899px){
+    nav{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    background:var(--bg-dark);
+    overflow:hidden;
+    padding-bottom:0;
+  }
+  .hero-media{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(201,161,101,.16), transparent 55%),
+      linear-gradient(180deg, rgba(11,11,12,.35) 0%, rgba(11,11,12,.55) 55%, var(--bg-dark) 100%),
+      repeating-linear-gradient(135deg, #17140f 0 2px, #0f0d0a 2px 4px);
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute; left:50%; bottom:14%;
+    width:62%; max-width:640px; aspect-ratio:16/7;
+    transform:translateX(-50%);
+    background:linear-gradient(180deg, rgba(201,161,101,.14), transparent 70%);
+    filter:blur(2px);
+    border-radius:50%;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    width:100%;
+    padding:180px 0 90px;
+  }
+  .hero h1{
+    color:var(--cream);
+    font-size:clamp(38px, 6vw, 68px);
+    max-width:820px;
+    margin:22px 0 22px;
+  }
+  .hero h1 em{color:var(--gold); font-style:normal;}
+  .hero p{
+    color:rgba(250,246,239,.78);
+    font-size:17px;
+    max-width:560px;
+    line-height:1.7;
+    margin-bottom:38px;
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; gap:16px;}
+  .hero-frame{
+    position:absolute; right:6%; bottom:0; top:26%;
+    width:38%; max-width:460px;
+    display:none;
+  }
+  @media(min-width:1000px){.hero-frame{display:block;}}
+  .car-card{
+    position:relative; height:100%;
+    border:1px solid rgba(201,161,101,.35);
+    background:linear-gradient(160deg, rgba(201,161,101,.08), rgba(255,255,255,.02));
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold-light);
+  }
+  .car-card svg{width:58%; opacity:.85;}
+  .scroll-cue{
+    position:absolute; bottom:26px; left:32px; z-index:2;
+    display:flex; align-items:center; gap:12px;
+    color:rgba(250,246,239,.55); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  }
+  .scroll-cue .line{width:36px; height:1px; background:currentColor; position:relative; overflow:hidden;}
+  .scroll-cue .line::after{content:""; position:absolute; inset:0; background:var(--gold); animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{transform:translateX(-100%);}50%{transform:translateX(100%);}}
+
+  /* MEDIA PLACEHOLDER */
+  .ph{
+    position:relative;
+    background:linear-gradient(150deg,#f0e9da,#e4d8bd);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:#a08a5f;
+    overflow:hidden;
+  }
+  .ph.dark{background:linear-gradient(150deg,#1c1a16,#0f0e0c); border-color:rgba(201,161,101,.25); color:var(--gold);}
+  .ph svg{width:34%; opacity:.55;}
+  .ph .ph-tag{
+    position:absolute; bottom:10px; left:10px;
+    font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    background:rgba(0,0,0,.55); color:#f2e6c9; padding:4px 8px;
+  }
+
+  section{padding:120px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(28px,3.6vw,42px); margin-top:16px;}
+  .section-head p{color:var(--ink-soft); font-size:16px; line-height:1.75; margin-top:18px;}
+
+  /* SERVICES */
+  .services{background:var(--cream);}
+  .grid-3{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:34px;}
+  .service-card .ph{aspect-ratio:4/3; margin-bottom:24px;}
+  .service-card h3{font-size:22px; margin-bottom:10px; color:var(--ink);}
+  .service-card p{color:var(--ink-soft); font-size:14.5px; line-height:1.7;}
+  .service-card .eyebrow{margin-bottom:2px;}
+
+  /* FLEET */
+  .fleet{background:var(--bg-dark); color:var(--cream);}
+  .fleet .section-head p{color:rgba(250,246,239,.65);}
+  .fleet .section-head .eyebrow{color:var(--gold);}
+  .fleet-list{display:flex; flex-direction:column;}
+  .fleet-row{
+    display:grid; grid-template-columns:220px 1fr; gap:40px;
+    align-items:center;
+    padding:38px 0;
+    border-top:1px solid rgba(250,246,239,.12);
+  }
+  .fleet-row:last-child{border-bottom:1px solid rgba(250,246,239,.12);}
+  .fleet-row .ph{aspect-ratio:4/3;}
+  .fleet-row h3{font-size:24px; color:var(--gold-light); margin-bottom:8px;}
+  .fleet-row p{color:rgba(250,246,239,.7); font-size:15px; line-height:1.75; max-width:560px;}
+  @media(max-width:640px){.fleet-row{grid-template-columns:1fr;}}
+
+  /* DESTINATIONS */
+  .destinations{background:var(--cream); position:relative;}
+  .route-line{
+    position:absolute; top:0; bottom:0; left:50%;
+    width:1px;
+    background:repeating-linear-gradient(to bottom, var(--gold) 0 6px, transparent 6px 14px);
+    opacity:.35;
+    display:none;
+  }
+  @media(min-width:860px){.route-line{display:block;}}
+  .grid-2{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;}
+  .dest-card .ph{aspect-ratio:16/11; margin-bottom:20px;}
+  .dest-card h3{font-size:22px; margin-bottom:8px; color:var(--gold); font-family:var(--font-display);}
+  .dest-card p{color:var(--ink-soft); font-size:14.5px; line-height:1.6;}
+
+  /* ABOUT */
+  .about{background:var(--bg-dark-2); color:var(--cream); text-align:center;}
+  .about .wrap{max-width:800px;}
+  .about .eyebrow{justify-content:center;}
+  .about .eyebrow::before{display:none;}
+  .about h2{font-size:clamp(30px,4vw,44px); margin:18px 0 24px; color:var(--gold-light);}
+  .about p{color:rgba(250,246,239,.75); font-size:16.5px; line-height:1.85;}
+
+  /* TESTIMONIALS */
+  .testimonials{background:var(--cream);}
+  .test-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:30px;}
+  .test-card{
+    background:#fff; border:1px solid var(--line); padding:36px;
+    position:relative;
+  }
+  .test-card::before{
+    content:"“"; font-family:var(--font-display); font-size:64px; color:var(--gold);
+    position:absolute; top:8px; left:20px; opacity:.5; line-height:1;
+  }
+  .test-card p{font-size:16px; line-height:1.75; font-style:italic; margin:26px 0 22px; color:var(--ink);}
+  .test-person{display:flex; align-items:center; gap:12px;}
+  .avatar{width:44px; height:44px; border-radius:50%; background:linear-gradient(150deg,var(--gold),#8a7042); flex-shrink:0;}
+  .test-person strong{display:block; font-size:14px;}
+  .test-person span{display:block; font-size:12.5px; color:var(--ink-soft);}
+
+  /* CTA STRIP */
+  .cta-strip{
+    background:var(--gold);
+    color:var(--ink);
+    padding:70px 0;
+    text-align:center;
+  }
+  .cta-strip h2{font-size:clamp(26px,3.4vw,36px); margin-bottom:22px; color:#1c1611;}
+  .cta-strip .btn{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+  .cta-strip .btn:hover{background:transparent; color:var(--ink);}
+
+  /* FOOTER */
+  footer{background:var(--bg-dark); color:rgba(250,246,239,.7); padding:80px 0 30px;}
+  .foot-top{display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:40px; padding-bottom:60px;}
+  @media(max-width:760px){.foot-top{grid-template-columns:1fr 1fr;}}
+  .foot-brand .logo{margin-bottom:14px;}
+  .foot-brand p{font-size:14px; line-height:1.7; color:rgba(250,246,239,.55); max-width:280px;}
+  footer h4{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-light); margin-bottom:18px;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:10px;}
+  footer a{font-size:14px; color:rgba(250,246,239,.65); transition:color .3s;}
+  footer a:hover{color:var(--gold-light);}
+  .foot-bottom{
+    border-top:1px solid rgba(250,246,239,.12);
+    padding-top:26px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:12.5px; color:rgba(250,246,239,.45);
+  }
+
+  @media(max-width:640px){
+    section{padding:80px 0;}
+    .wrap{padding:0 22px;}
+    .hero-inner{padding:150px 0 70px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Luxe Puglia <span>Transfer</span></div>
+    <nav aria-label="Navigazione principale">
+      <ul>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#flotta">Flotta</a></li>
+        <li><a href="#mete">Mete</a></li>
+        <li><a href="#chi-siamo">Chi siamo</a></li>
+      </ul>
+    </nav>
+    <a href="#prenota" class="btn nav-cta">Prenota il tuo tour</a>
+    <button class="nav-toggle" aria-label="Apri menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-media" aria-hidden="true"></div>
+  <div class="hero-frame" aria-hidden="true">
+    <div class="car-card">
+      <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 60 L28 60 L38 42 Q45 34 60 34 L120 34 Q135 34 142 44 L160 60 L188 60" stroke="currentColor" stroke-width="2"/>
+        <circle cx="52" cy="66" r="10" stroke="currentColor" stroke-width="2"/>
+        <circle cx="148" cy="66" r="10" stroke="currentColor" stroke-width="2"/>
+        <line x1="10" y1="60" x2="188" y2="60" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <span class="eyebrow reveal">Noleggio con Conducente · Puglia</span>
+      <h1 class="reveal">Il tuo <em>private driver</em><br>d'eccellenza in Puglia</h1>
+      <p class="reveal">Benvenuti in Luxe Puglia Transfer, il punto di riferimento per chi desidera esplorare le meraviglie della nostra terra con il massimo del comfort e del prestigio. Offriamo servizi di Noleggio con Conducente (NCC) pensati per chi non accetta compromessi tra eleganza e funzionalità.</p>
+      <div class="hero-actions reveal">
+        <a href="#prenota" class="btn">Prenota il tuo tour</a>
+        <a href="#servizi" class="btn btn-ghost">Scopri i servizi</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="line"></span> Scorri</div>
+</section>
+
+<section class="services" id="servizi">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">I nostri servizi</span>
+      <h2>Servizi di transfer di lusso e tour esclusivi</h2>
+      <p>Che tu sia in viaggio per affari o per una vacanza indimenticabile, il nostro obiettivo è trasformare ogni spostamento in un momento di puro relax. Con Luxe Puglia Transfer, la scoperta del territorio comincia dal primo istante.</p>
+    </div>
+    <div class="grid-3">
+      <div class="service-card reveal">
+        <div class="ph"><svg viewBox="0 0 64 64" fill="none"><path d="M12 44 L52 44 M16 44 L18 30 Q19 26 24 26 L40 26 Q45 26 46 30 L48 44 M22 44 V50 M42 44 V50 M22 34 H42" stroke="currentColor" stroke-width="2"/></svg><span class="ph-tag">Foto: accoglienza aeroporto</span></div>
+        <span class="eyebrow">01</span>
+        <h3>Transfer aeroporto Bari e Brindisi</h3>
+        <p>Accoglienza VIP e collegamenti rapidi verso le masserie e gli hotel più esclusivi.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="ph"><svg viewBox="0 0 64 64" fill="none"><path d="M10 40 Q22 20 32 40 Q42 60 54 30" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="40" r="2.5" fill="currentColor"/><circle cx="54" cy="30" r="2.5" fill="currentColor"/></svg><span class="ph-tag">Foto: tour privato sud Italia</span></div>
+        <span class="eyebrow">02</span>
+        <h3>Tour privati sud Italia</h3>
+        <p>Itinerari su misura per scoprire Alberobello, Polignano a Mare, Otranto, Lecce e Matera a bordo di veicoli premium.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="ph"><svg viewBox="0 0 64 64" fill="none"><path d="M32 12 L36 24 L48 24 L38 32 L42 44 L32 36 L22 44 L26 32 L16 24 L28 24 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="ph-tag">Foto: matrimoni ed eventi</span></div>
+        <span class="eyebrow">03</span>
+        <h3>Servizi per matrimoni ed eventi</h3>
+        <p>La logistica perfetta per i tuoi giorni più importanti nelle location più suggestive della regione.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fleet" id="flotta">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">La flotta</span>
+      <h2>Veicoli luxury per un comfort senza compromessi</h2>
+      <p>La nostra flotta è composta esclusivamente da veicoli di ultima generazione, sottoposti a rigorosi controlli per garantire la massima sicurezza.</p>
+    </div>
+    <div class="fleet-list">
+      <div class="fleet-row reveal">
+        <div class="ph dark"><svg viewBox="0 0 64 64" fill="none"><rect x="10" y="26" width="44" height="14" rx="3" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="42" r="5" stroke="currentColor" stroke-width="2"/><circle cx="44" cy="42" r="5" stroke="currentColor" stroke-width="2"/></svg><span class="ph-tag">Mercedes-Benz Classe E</span></div>
+        <div>
+          <h3>Mercedes-Benz Classe E</h3>
+          <p>L'equilibrio perfetto tra stile e versatilità: la berlina ideale per viaggi d'affari e trasferimenti urbani, capace di coniugare un'eleganza discreta a un comfort di bordo superiore.</p>
+        </div>
+      </div>
+      <div class="fleet-row reveal">
+        <div class="ph dark"><svg viewBox="0 0 64 64" fill="none"><rect x="8" y="24" width="48" height="16" rx="3" stroke="currentColor" stroke-width="2"/><circle cx="19" cy="42" r="5" stroke="currentColor" stroke-width="2"/><circle cx="45" cy="42" r="5" stroke="currentColor" stroke-width="2"/></svg><span class="ph-tag">Mercedes-Benz Classe S</span></div>
+        <div>
+          <h3>Mercedes-Benz Classe S</h3>
+          <p>Il vertice assoluto del lusso e del prestigio: la nostra ammiraglia di rappresentanza, progettata per offrire un'esperienza di viaggio esclusiva, dove ogni dettaglio è sinonimo di comfort regale e massima riservatezza.</p>
+        </div>
+      </div>
+      <div class="fleet-row reveal">
+        <div class="ph dark"><svg viewBox="0 0 64 64" fill="none"><rect x="8" y="20" width="48" height="20" rx="3" stroke="currentColor" stroke-width="2"/><circle cx="19" cy="42" r="5" stroke="currentColor" stroke-width="2"/><circle cx="45" cy="42" r="5" stroke="currentColor" stroke-width="2"/></svg><span class="ph-tag">Mercedes-Benz Classe V</span></div>
+        <div>
+          <h3>Mercedes-Benz Classe V</h3>
+          <p>Il salotto itinerante per i viaggi di gruppo: un van Premium che ridefinisce il concetto di spazio, offrendo fino a 7 posti in un ambiente lussuoso e versatile, ideale per famiglie, delegazioni e business team.</p>
+        </div>
+      </div>
+      <div class="fleet-row reveal">
+        <div class="ph dark"><svg viewBox="0 0 64 64" fill="none"><rect x="6" y="18" width="52" height="22" rx="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="42" r="5" stroke="currentColor" stroke-width="2"/><circle cx="46" cy="42" r="5" stroke="currentColor" stroke-width="2"/></svg><span class="ph-tag">Mercedes-Benz Sprinter</span></div>
+        <div>
+          <h3>Mercedes-Benz Sprinter</h3>
+          <p>Massima capienza senza rinunciare alla classe: la soluzione perfetta per trasferimenti di piccoli gruppi con molti bagagli, che unisce affidabilità e spazio a finiture di alto livello firmate Mercedes-Benz, con interni in pelle e climatizzazione bi-zona.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="destinations" id="mete">
+  <div class="route-line" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Le mete</span>
+      <h2>Scopri le mete più iconiche con un driver privato</h2>
+      <p>Viaggia verso le destinazioni più sognate con la fluidità che solo un servizio di luxury transfer può offrire.</p>
+    </div>
+    <div class="grid-2">
+      <div class="dest-card reveal">
+        <div class="ph"><svg viewBox="0 0 64 64" fill="none"><path d="M12 44 L20 30 L28 44 Z M26 44 L36 24 L46 44 Z M42 44 L48 34 L54 44 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="ph-tag">Valle d'Itria</span></div>
+        <h3>Valle d'Itria</h3>
+        <p>Transfer privati per Alberobello, Locorotondo e Cisternino.</p>
+      </div>
+      <div class="dest-card reveal">
+        <div class="ph"><svg viewBox="0 0 64 64" fill="none"><path d="M8 42 Q16 34 24 42 T40 42 T56 42" stroke="currentColor" stroke-width="2"/><path d="M8 48 Q16 40 24 48 T40 48 T56 48" stroke="currentColor" stroke-width="2"/></svg><span class="ph-tag">Costa Adriatica</span></div>
+        <h3>Costa Adriatica</h3>
+        <p>Chauffeur service per Polignano a Mare e Monopoli.</p>
+      </div>
+      <div class="dest-card reveal">
+        <div class="ph"><svg viewBox="0 0 64 64" fill="none"><rect x="18" y="16" width="28" height="34" stroke="currentColor" stroke-width="2"/><path d="M18 26 H46 M18 36 H46" stroke="currentColor" stroke-width="2"/></svg><span class="ph-tag">Salento</span></div>
+        <h3>Salento</h3>
+        <p>Collegamenti esclusivi per Lecce, Otranto e Gallipoli.</p>
+      </div>
+      <div class="dest-card reveal">
+        <div class="ph"><svg viewBox="0 0 64 64" fill="none"><path d="M8 48 L14 30 L20 48 M20 48 L28 20 L36 48 M36 48 L44 32 L52 48" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="ph-tag">Matera</span></div>
+        <h3>Matera</h3>
+        <p>Tour giornalieri per la Città dei Sassi con partenza da qualsiasi località pugliese.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="chi-siamo">
+  <div class="wrap reveal">
+    <span class="eyebrow">Chi siamo</span>
+    <h2>Luxe Puglia Transfer</h2>
+    <p>Nasce per elevare lo standard del trasporto privato nella regione. La nostra visione combina la profonda conoscenza del territorio con l'eccellenza del servizio chauffeur. Non ci limitiamo a portarti a destinazione: ti accompagniamo alla scoperta delle meraviglie della Puglia garantendo discrezione, sicurezza e un'accoglienza a cinque stelle. Ogni nostro autista è un professionista, pronto a soddisfare ogni tua esigenza con cortesia e puntualità.</p>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Testimonianze</span>
+      <h2>Chi ha viaggiato con noi</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <p>Un servizio impeccabile dal primo contatto all'ultimo saluto: puntualità, discrezione e un'auto perfetta per ogni occasione.</p>
+        <div class="test-person">
+          <div class="avatar"></div>
+          <div><strong>Carlo T.</strong><span>Transfer aeroporto Bari</span></div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <p>Ci hanno accompagnato per tre giorni tra Valle d'Itria e Salento: professionalità e attenzione ai dettagli fuori dal comune.</p>
+        <div class="test-person">
+          <div class="avatar"></div>
+          <div><strong>Wanda G.</strong><span>Tour privato sud Italia</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip" id="prenota">
+  <div class="wrap reveal">
+    <h2>Pronto a scoprire la Puglia con stile?</h2>
+    <a href="mailto:info@luxepugliatransfer.it" class="btn">Prenota il tuo tour</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo">Luxe Puglia <span>Transfer</span></div>
+        <p>Noleggio con Conducente di lusso per transfer, tour privati e matrimoni in tutta la Puglia.</p>
+      </div>
+      <div>
+        <h4>Servizi</h4>
+        <ul>
+          <li><a href="#servizi">Transfer aeroporto</a></li>
+          <li><a href="#servizi">Tour privati</a></li>
+          <li><a href="#servizi">Matrimoni ed eventi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Flotta</h4>
+        <ul>
+          <li><a href="#flotta">Classe E</a></li>
+          <li><a href="#flotta">Classe S</a></li>
+          <li><a href="#flotta">Classe V</a></li>
+          <li><a href="#flotta">Sprinter</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul>
+          <li><a href="mailto:info@luxepugliatransfer.it">info@luxepugliatransfer.it</a></li>
+          <li><a href="tel:+390000000000">+39 000 000 0000</a></li>
+          <li><a href="#mete">Puglia, Italia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Luxe Puglia Transfer. Tutti i diritti riservati.</span>
+      <span>Privacy · Termini</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    },{threshold:.15});
+    els.forEach(el=>io.observe(el));
+  } else {
+    els.forEach(el=>el.classList.add('is-visible'));
+  }
+</script>
+</body>
+</html>
